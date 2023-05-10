@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"log"
 )
 
@@ -9,6 +8,57 @@ func main() {
 	log.Println(generateMatrix(4))
 }
 
+// [[1,2],[4,3]]
+
+func generateMatrix(n int) [][]int {
+	matrix := make([][]int, n)
+	for i := range matrix {
+		matrix[i] = make([]int, n)
+	}
+
+	num := 1
+	rowStart, rowEnd := 0, n-1
+	colStart, colEnd := 0, n-1
+
+	for rowStart <= rowEnd && colStart <= colEnd {
+
+		for i := colStart; i <= colEnd; i++ {
+			matrix[rowStart][i] = num
+			num++
+		}
+		rowStart++
+
+		for i := rowStart; i <= rowEnd; i++ {
+			matrix[i][colEnd] = num
+
+			num++
+		}
+		colEnd--
+
+		if rowStart <= rowEnd {
+
+			for i := colEnd; i >= colStart; i-- {
+				matrix[rowEnd][i] = num
+				num++
+			}
+			rowEnd--
+		}
+
+		if colStart <= colEnd {
+
+			for i := rowEnd; i >= rowStart; i-- {
+				matrix[i][colStart] = num
+				num++
+			}
+			colStart++
+
+		}
+	}
+
+	return matrix
+}
+
+/*
 func generateMatrix(n int) [][]int {
 	var res [][]int
 	max := n * 3
@@ -25,7 +75,7 @@ func generateMatrix(n int) [][]int {
 		c1 := 0
 
 		count := 2
-		for i := n + 1; i <= max; i++ {
+			for i := n + 1; i <= max; i++ {
 			if i == n+1 {
 				c1 = i
 				continue
@@ -54,3 +104,4 @@ func generateMatrix(n int) [][]int {
 	}
 	return res
 }
+*/
