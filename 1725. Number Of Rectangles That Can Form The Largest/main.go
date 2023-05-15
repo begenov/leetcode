@@ -9,5 +9,22 @@ func main() {
 }
 
 func countGoodRectangles(rectangles [][]int) int {
-	return 0
+	maxLen := 0
+	count := 0
+	for _, r := range rectangles {
+		sideLen := min(r[0], r[1])
+		if sideLen > maxLen {
+			maxLen = sideLen
+			count = 1
+		} else if sideLen == maxLen {
+			count++
+		}
+	}
+	return count
+}
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
 }
