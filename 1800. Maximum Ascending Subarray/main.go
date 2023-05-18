@@ -1,10 +1,20 @@
 package main
 
-import "log"
+import (
+	"context"
+	"fmt"
+	"log"
+	"sync"
+)
 
 func main() {
 	input := []int{10, 20, 30, 5, 10, 50}
 	log.Println(maxAscendingSum(input))
+	f := make(map[int]int)
+	fmt.Println(f[2])
+	context.TODO()
+	context.Background()
+	sync.Map
 }
 
 func maxAscendingSum(nums []int) int {
