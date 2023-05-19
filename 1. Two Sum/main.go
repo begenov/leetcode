@@ -9,5 +9,18 @@ func main() {
 }
 
 func twoSum(nums []int, target int) []int {
-	return nil
+	var a, b int
+	var res []int
+	for i := 0; i < len(nums); i++ {
+		for j := i + 1; j < len(nums); j++ {
+			a = nums[i]
+			b = nums[j]
+			if a+b == target {
+				res = append(res, i)
+				res = append(res, j)
+				return res
+			}
+		}
+	}
+	return res
 }
