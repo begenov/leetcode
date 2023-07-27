@@ -26,3 +26,5 @@ go run main.go
 ## Acknowledgments
 
     Thanks to LeetCode for providing the platform to practice algorithm and data structure problems!
+    
+## [leetcode](https://leetcode.com/OrazaliBegenov/)
